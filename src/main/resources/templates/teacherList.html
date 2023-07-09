@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+        <h3>Create</h3>
+        <form th:action="@{/teacher/create}"  method="post" >
+            <label>name:</label> <input type="text" name="name" ><br>
+            <label>subject:</label><input type="text" name="subject" ><br>
+            <label>age</label> <input type="text" name="age" ><br>
+            <button type="submit">submit</button>
+        </form>
+
+<h3>Teacher</h3>
+<table border="1px">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Age</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody th:each="teacher: ${listTeacher}">
+    <tr>
+        <td th:text="${listTeacher.indexOf(teacher)+1}"></td>
+        <td th:text="${teacher.name}"></td>
+        <td th:text="${teacher.getSubject()}"></td>
+        <td th:text="${teacher.getAge()}"></td>
+        <td>
+            <button><a th:href="@{'/teacher/edit/'+ ${teacher.id}}">Edit</a> </button>
+            <button><a th:href="@{'/teacher/delete/'+ ${teacher.id}}">Delete</a> </button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
