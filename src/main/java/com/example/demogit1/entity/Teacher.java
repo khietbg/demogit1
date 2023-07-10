@@ -11,5 +11,6 @@ public class Teacher {
     private String name;
     private String subject;
     private int age;
-    private boolean status;
+    private boolean status=true;
+
 }
