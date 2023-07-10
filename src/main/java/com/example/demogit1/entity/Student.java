@@ -13,4 +13,5 @@ public class Student {
     private int age;
     private String mail;
     private String lop;
+    private boolean status = true;
 }

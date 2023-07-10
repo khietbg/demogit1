@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>UpDate</h3>
+<form th:action="@{/student/update}" method="post">
+    <input type="text" name="id" th:value="${editStudent.id}" readonly><br>
+    <label>Name:</label> <input type="text" name="name" th:value="${editStudent.name}"><br>
+    <label>Age:</label> <input type="text" name="age" th:value="${editStudent.getAge()}"><br>
+    <label>Mail:</label> <input type="text" name="mail" th:value="${editStudent.mail}"><br>
+    <label>Class:</label> <input type="text" name="lop" th:value="${editStudent.lop}"><br>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
