@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 
+<h3>Create</h3>
+<form th:action="@{/student/create}" method="post">
+    <label>Name:</label> <input type="text" name="name"><br>
+    <label>Age:</label><input type="text" name="age"><br>
+    <label>Mail</label> <input type="text" name="mail"><br>
+    <label>CLass</label> <input type="text" name="lop"><br>
+    <button type="submit">Submit</button>
+</form>
+
+<h3>Student</h3>
+<table border="1px">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Mail</th>
+        <th>Class</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody th:each="student: ${listStudent}">
+    <tr>
+        <td th:text="${listStudent.indexOf(student)+1}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.getAge()}"></td>
+        <td th:text="${student.getMail()}"></td>
+        <td th:text="${student.getLop()}"></td>
+        <td>
+            <button><a th:href="@{'/student/edit/'+ ${student.id}}">Edit</a></button>
+            <button><a th:href="@{'/student/delete/'+ ${student.id}}">Delete</a></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
